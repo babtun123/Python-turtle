@@ -1,0 +1,437 @@
+# Project: Project 1
+# Student Name:  <Shodiya, Samuel>
+# UIN: <669794692>
+# URL: <https://replit.com/@SamuelShodiya/Project-1-CS-111#main.py>
+
+######################################################
+
+
+import turtle
+
+
+
+from random import randint
+
+fill_color = ['red', 'blue', 'green', 'black', 'purple', 'white', 'maroon', 'dark olive green']
+
+def draw_triangle(t, x, y, heading, pensize, pen_color, fill_color, length): 
+
+
+  t.pensize(pensize)
+  t.pencolor(pen_color)
+  t.setheading(heading)
+
+  # position
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+
+  # color
+  if (fill_color != 'None'):
+    t.fillcolor(fill_color)
+    t.begin_fill()
+
+  for i in range(3):
+    t.forward(length)
+    t.left(120)
+
+  if (fill_color != 'None'):
+    t.end_fill()
+
+
+
+def draw_rectangle(t, x, y, heading, pensize, pen_color, fill_color, length, width):
+
+  t.pensize(pensize)
+  t.pencolor(pen_color)
+  t.setheading(heading)
+
+  # position
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+
+  #color
+  if (fill_color != 'None'):
+    t.fillcolor(fill_color)
+    t.begin_fill()
+  
+  for i in range(2):
+    t.forward(width)
+    t.left(90)
+    t.forward(length)
+    t.left(90)
+
+  if (fill_color != 'None'):
+    t.end_fill()
+
+
+def draw_circle(t, x, y, heading, pensize, pen_color, fill_color, radius, extent, steps): 
+  t.pensize(pensize)
+  t.pencolor(pen_color)
+  t.setheading(heading)
+
+  # position
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+
+  #color
+  if (fill_color != 'None'):
+    t.fillcolor(fill_color)
+    t.begin_fill()
+
+  t.circle(radius, extent = extent, steps = steps)
+  
+  if (fill_color != 'None'):
+    t.end_fill()
+
+
+def draw_square(t, x, y, heading, pensize, pen_color, fill_color, length, width):
+  t.pensize(pensize)
+  t.pencolor(pen_color)
+  t.setheading(heading)
+
+  # position
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+
+  #color
+  if (fill_color != 'None'):
+    t.fillcolor(fill_color)
+    t.begin_fill()
+  
+  for i in range(4):
+    t.forward(length)
+    t.left(90)
+
+  if (fill_color != 'None'):
+    t.end_fill()
+
+
+#pentagon
+def draw_shape(t, x, y, fill_color,):
+  t.penup()
+  t.goto(x, y)
+  t.pendown()
+
+  if (fill_color != 'None'):
+    t.fillcolor(fill_color)
+    t.begin_fill()
+
+  draw_circle (t, 40, 40, 50, 0, 'red', 'blue', 10, 360, 5)
+
+  if (fill_color != 'None'):
+    t.end_fill()
+
+
+def draw_object(t):
+  '''draws a house'''
+  draw_square(t, 140, -70, 0, 1, 'red', fill_color[7], 100, 100)
+
+  x, y = t.position()
+
+  draw_triangle(t, 135, 30, 0, 1, 'white', 'black', 110)
+
+  x, y = t.position()
+
+  draw_rectangle(t, 175, -70, 0, 1, 'white', fill_color[3], 50, 30)
+
+  x, y = t.position()
+
+
+  draw_circle (t, 195, 0, 50, 0, 'red', 'blue', 10, 720, 5) 
+
+  x, y = t.position()
+
+  draw_square(t, 150, 0, 0, 1, 'red', fill_color[0], 20, 20)
+  
+  x, y = t.position()
+
+  draw_square(t, 210, 0, 0, 1, 'red', fill_color[0], 20, 20)
+
+  t.hideturtle()
+
+
+
+  
+
+
+
+
+
+def draw_background(t):
+  # draws a star
+  t.color = ('white')
+  turns = 5
+  turtle.begin_fill()
+  while turns > 0:
+    t.forward (10)
+    t.left (145)
+    turns = turns - 1
+  turtle.end_fill()
+
+# num_stars = 0
+# while num_stars < 30:
+#   X = randint (-200, 200)
+#   y= randint (100, 300)
+#   draw_background(t)
+#   t.penup()
+#   t.goto(X, y)
+#   t.pendown()
+#   num_stars = num_stars + 1  
+
+
+def main():
+  s = turtle.Screen()
+  t = turtle.Turtle()
+  t1 = turtle.Turtle()
+  t2 = turtle.Turtle()
+
+  s.setup(width = 500, height = 500)
+
+  s.tracer(0)
+
+  num_stars = 0
+  while num_stars < 30:
+    X = randint (-200, 200)
+    y = randint (100, 300)
+    draw_background(t)
+    t.penup()
+    t.goto(X, y)
+    t.pendown()
+    num_stars = num_stars + 1   
+
+  draw_background(t1)
+  s.update()
+
+  draw_object (t2)
+
+  t2.penup()
+  t2.pendown()
+
+  t2.goto(30, 0)
+  t2.write('happy home')
+
+  print('Samuel Shodiya', 669794692 )
+
+
+main()
+
+
+
+
+# draw_shape()
+
+
+
+
+# draw_circle (t, 40, 40, 50, 0, 'red', 'blue', 10, 720, 5)
+
+  
+
+
+
+
+# draw_triangle(t, 50, 50, 0, 1, 'white', 'black', 60)
+
+
+
+
+
+
+
+# <function definitions>
+
+# def main(): 
+
+#   <variable declarations> (turtles, screen)>
+
+#   <initial settings for variables>
+  
+#   <lots of code, including calls to other functions>
+
+
+
+# main()
+
+
+
+
+
+
+
+
+
+
+
+
+# s = turtle.Screen()
+# s.setup(width = 500, height = 500)
+# s.bgcolor("midnightblue")
+# s.tracer(0, 0)
+# t = turtle.Turtle()
+
+# t.speed(0)
+# color = ['dark green', 'white', 'saddle brown', 'dark olive green', 'black']
+# #background
+# #pole 
+# t.penup()
+# t.goto(-130, -20)
+# t.pendown()
+# t.color(color[2])
+# t.begin_fill()
+# for i in range(2):
+#   t.forward(20)
+#   t.left(90)
+#   t.forward(160)
+#   t.left(90)
+# t.end_fill()
+# #windmill
+# t.penup()
+# t.goto(-115, 137)
+# t.pendown()
+# def draw_triangle(t):
+#   for i in range(3):
+#     t.forward(70)
+#     t.left(120)
+#   t.end_fill()
+
+# for i in range (10):
+#   draw_triangle(t)
+#   t.right(36)
+# #road
+# t.penup()
+# t.goto(-240, -10)
+# t.pendown()
+# t.color(color[4])
+# t.begin_fill()
+# t.forward(500)
+# t.right(90)
+# t.forward(100)
+# t.right(90)
+# t.forward(500)
+# t.right(90)
+# t.end_fill()
+
+
+
+# #House
+# t.penup()
+# t.goto(50, 100)
+# t.pendown()
+# t.color(color[3])
+# t.begin_fill()
+# for i in range(4):
+#   t.right(90)
+#   t.forward(100)
+# t.end_fill()
+# #chimey
+# t.penup()
+# t.goto(120, 140)
+# t.pendown()
+# t.color('black')
+# t.begin_fill()
+# for i in range(2):
+#   t.forward(40)
+#   t.right(90)
+#   t.forward(15)
+#   t.right(90)
+# t.end_fill()
+#roof
+# window 1
+# t.penup()
+# t.goto(55, 75)
+# t.pendown()
+# t.color('wheat')
+# t.begin_fill()
+# t.right(90)
+# for i in range(4):
+#   t.forward(20)
+#   t.right(90)
+# t.end_fill()
+
+# #window2
+# t.penup()
+# t.goto(125, 75)
+# t.pendown()
+# t.color('wheat')
+# t.begin_fill()
+# for i in range(4):
+#   t.forward(20)
+#   t.right(90)
+# t.end_fill()
+# t.penup()
+# t.goto(40, 100)
+# t.pendown()
+# t.color(color[4])
+# t.begin_fill()
+# t.right(90)
+# for i in range(3):
+#   t.forward(120)
+#   t.left(120)
+# t.end_fill()
+# #door
+# t.penup()
+# t.goto(90, 0)
+# t.pendown()
+# t.color("dark orange")
+# t.begin_fill()
+# t.left(90)
+# for i in range(2):
+#   t.forward(50)
+#   t.right(90)
+#   t.forward(25)
+#   t.right(90)
+# t.end_fill()
+# 
+
+
+
+#stars
+# t.color = ('white')
+# def draw_star(t):
+#   turns = 5
+#   turtle.begin_fill()
+#   while turns > 0:
+#     t.forward (10)
+#     t.left (145)
+#     turns = turns - 1
+#   turtle.end_fill()
+
+# num_stars = 0
+# while num_stars < 30:
+#   X = randint (-200, 200)
+#   y= randint (100, 300)
+#   draw_star(t)
+#   t.penup()
+#   t.goto(X, y)
+#   t.pendown()
+#   num_stars = num_stars + 1  
+  
+
+# draw_star(t)
+
+
+
+
+
+
+
+
+
+
+## information for scorers
+
+## on what line number is the required for loop?
+## <line number 34>
+
+## on what line number is the required use of a random number?
+## <line number 198 >
+
+## on what line number is the required use of a conditional statement?
+## <line number 30>
+
+## on what line number is the required use of a list?
+## <line number 15>
